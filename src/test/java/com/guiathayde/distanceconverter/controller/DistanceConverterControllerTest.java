@@ -22,7 +22,7 @@ public class DistanceConverterControllerTest {
         mockMvc.perform(get("/"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("index"))
-                .andExpect(model().attributeDoesNotExist("originalValue", "convertedValue", "errorKey", "conversionType", "value"));
+                .andExpect(model().attributeDoesNotExist("originalValue", "convertedValue", "errorKey", "originalUnitKey", "convertedUnitKey", "value", "conversionType"));
     }
 
     @Test
