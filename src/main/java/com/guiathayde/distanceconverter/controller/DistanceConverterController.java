@@ -11,10 +11,13 @@ import java.util.Locale;
 @Controller
 public class DistanceConverterController {
 
-    @RequestMapping(value = "/", method = {RequestMethod.GET, RequestMethod.POST})
+    private static final double MILES_TO_METERS_FACTOR = 1609.34;
+    private static final double FEET_TO_METERS_FACTOR = 0.3048;
+
+    @RequestMapping(value = "/", method = { RequestMethod.GET, RequestMethod.POST })
     public String convertDistance(@RequestParam(required = false) String conversionType,
-                                  @RequestParam(required = false) Double value,
-                                  Model model, Locale locale) {
+            @RequestParam(required = false) Double value,
+            Model model, Locale locale) {
 
         if (conversionType == null && value == null) {
             return "index"; // Initial page load
@@ -39,22 +42,22 @@ public class DistanceConverterController {
 
         switch (conversionType) {
             case "mi-m":
-convertedValue = value * MILES_TO_METERS_FACTOR;
+                convertedValue = value * MILES_TO_METERS_FACTOR;
                 originalUnitKey = "unit.miles";
                 convertedUnitKey = "unit.meters";
                 break;
             case "m-mi":
-                convertedValue = value / 1609.34;
+                convertedValue = value / MILES_TO_METERS_FACTOR;
                 originalUnitKey = "unit.meters";
                 convertedUnitKey = "unit.miles";
                 break;
             case "ft-m":
-                convertedValue = value * 0.3048;
+                convertedValue = value * FEET_TO_METERS_FACTOR;
                 originalUnitKey = "unit.feet";
                 convertedUnitKey = "unit.meters";
                 break;
             case "m-ft":
-                convertedValue = value / 0.3048;
+                convertedValue = value / FEET_TO_METERS_FACTOR;
                 originalUnitKey = "unit.meters";
                 convertedUnitKey = "unit.feet";
                 break;
