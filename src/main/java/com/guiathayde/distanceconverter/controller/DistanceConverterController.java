@@ -29,6 +29,7 @@ public class DistanceConverterController {
         if (conversionType == null || conversionType.trim().isEmpty()) {
             model.addAttribute("errorKey", "error.missingOption");
             model.addAttribute("value", value); // Keep entered value
+            model.addAttribute("conversionType", conversionType); // Keep selected type (even if empty)
             return "index";
         }
 
