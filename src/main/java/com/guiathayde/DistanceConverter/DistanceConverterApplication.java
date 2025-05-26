@@ -1,4 +1,4 @@
-package com.guiathayde.DistanceConverter;
+package com.guiathayde.distanceconverter;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
