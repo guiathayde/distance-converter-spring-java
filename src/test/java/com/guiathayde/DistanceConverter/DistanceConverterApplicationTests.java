@@ -1,4 +1,4 @@
-package com.guiathayde.DistanceConverter;
+package com.guiathayde.distanceconverter;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
