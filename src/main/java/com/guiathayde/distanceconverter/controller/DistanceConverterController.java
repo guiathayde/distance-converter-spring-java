@@ -39,7 +39,7 @@ public class DistanceConverterController {
 
         switch (conversionType) {
             case "mi-m":
-                convertedValue = value * 1609.34;
+convertedValue = value * MILES_TO_METERS_FACTOR;
                 originalUnitKey = "unit.miles";
                 convertedUnitKey = "unit.meters";
                 break;
