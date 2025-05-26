@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="#{result.title}">Conversion Result</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1 th:text="#{result.title}">Conversion Result</h1>
+
+    <div th:if="${originalValue != null and convertedValue != null and originalUnitKey != null and convertedUnitKey != null}">
+        <p th:text="${#numbers.formatDecimal(originalValue, 1, 2)} + ' ' + #{${originalUnitKey}} + ' ' + #{result.equivalentTo} + ' ' + ${#numbers.formatDecimal(convertedValue, 1, 2)} + ' ' + #{${convertedUnitKey}} + '.'">
+            <!-- Example: 10.00 miles are equivalent to 16093.40 meters. -->
+        </p>
+    </div>
+
+    <!-- Fallback error display, though most errors should be on index.html -->
+    <div th:if="${errorKey}">
+        <p th:text="#{${errorKey}}" style="color:red;">Error message will appear here</p>
+    </div>
+
+    <p>
+        <a href="/" th:href="@{/}" th:text="#{result.backToForm}">Convert another value</a>
+    </p>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="#{form.title}">Distance Converter</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1 th:text="#{form.title}">Distance Converter</h1>
+
+    <form action="/" method="post">
+        <div>
+            <label for="conversionType" th:text="#{form.conversionType}">Conversion Type:</label>
+            <select id="conversionType" name="conversionType">
+                <option value="" th:text="#{form.selectOption}" th:selected="${conversionType == null || conversionType.isEmpty()}">-- Select --</option>
+                <option value="mi-m" th:text="#{conversion.mi-m}" th:selected="${conversionType == 'mi-m'}">Miles to Meters</option>
+                <option value="m-mi" th:text="#{conversion.m-mi}" th:selected="${conversionType == 'm-mi'}">Meters to Miles</option>
+                <option value="ft-m" th:text="#{conversion.ft-m}" th:selected="${conversionType == 'ft-m'}">Feet to Meters</option>
+                <option value="m-ft" th:text="#{conversion.m-ft}" th:selected="${conversionType == 'm-ft'}">Meters to Feet</option>
+            </select>
+        </div>
+        <div>
+            <label for="value" th:text="#{form.value}">Value:</label>
+            <input type="number" id="value" name="value" step="any" th:value="${value}" />
+        </div>
+        <div>
+            <button type="submit" th:text="#{form.submit}">Convert</button>
+        </div>
+    </form>
+
+    <div th:if="${errorKey}">
+        <p th:text="#{${errorKey}}" style="color:red;">Error message will appear here</p>
+    </div>
+
+</body>
+</html>
