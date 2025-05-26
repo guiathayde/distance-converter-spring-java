@@ -7,6 +7,14 @@
 <body>
     <h1 th:text="#{form.title}">Distance Converter</h1>
 
+    <div>
+      <p>
+        <span th:text="#{language.select}">Select language:</span>
+        <a th:href="@{${#httpServletRequest.requestURI}(lang='en')}">English</a> |
+        <a th:href="@{${#httpServletRequest.requestURI}(lang='pt_BR')}">Português</a>
+      </p>
+    </div>
+
     <form action="/" method="post">
         <div>
             <label for="conversionType" th:text="#{form.conversionType}">Conversion Type:</label>
