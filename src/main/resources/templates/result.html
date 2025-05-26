@@ -10,8 +10,8 @@
     <div>
       <p>
         <span th:text="#{language.select}">Select language:</span>
-        <a th:href="@{${#httpServletRequest.requestURI}(lang='en')}">English</a> |
-        <a th:href="@{${#httpServletRequest.requestURI}(lang='pt_BR')}">Português</a>
+        <a th:href="@{''(lang='en')}">English</a> |
+        <a th:href="@{''(lang='pt_BR')}">Português</a>
       </p>
     </div>
 
